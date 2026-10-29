@@ -1,0 +1,577 @@
+[
+ {
+  "status": "PARTIAL",
+  "name": "base.scs",
+  "size": 10510829745
+ },
+ {
+  "status": "PARTIAL",
+  "name": "base_cfg.scs",
+  "size": 4262
+ },
+ {
+  "status": "OK",
+  "name": "base_map.scs",
+  "size": 326131242
+ },
+ {
+  "status": "PARTIAL",
+  "name": "base_share.scs",
+  "size": 8710870202
+ },
+ {
+  "status": "OK",
+  "name": "base_vehicle.scs",
+  "size": 3820238180
+ },
+ {
+  "status": "PARTIAL",
+  "name": "core.scs",
+  "size": 24866
+ },
+ {
+  "status": "OK",
+  "name": "def.scs",
+  "size": 27106768
+ },
+ {
+  "status": "OK",
+  "name": "dlc_actros_tuning.scs",
+  "size": 24760376
+ },
+ {
+  "status": "OK",
+  "name": "dlc_balkan_e.scs",
+  "size": 189975903
+ },
+ {
+  "status": "OK",
+  "name": "dlc_balkan_w.scs",
+  "size": 437698254
+ },
+ {
+  "status": "OK",
+  "name": "dlc_balt.scs",
+  "size": 102886645
+ },
+ {
+  "status": "OK",
+  "name": "dlc_bobcat.scs",
+  "size": 41726109
+ },
+ {
+  "status": "OK",
+  "name": "dlc_christmas.scs",
+  "size": 554513389
+ },
+ {
+  "status": "OK",
+  "name": "dlc_daf_2021.scs",
+  "size": 219103954
+ },
+ {
+  "status": "OK",
+  "name": "dlc_daf_tuning_pack.scs",
+  "size": 13138786
+ },
+ {
+  "status": "OK",
+  "name": "dlc_daf_xd.scs",
+  "size": 169254197
+ },
+ {
+  "status": "OK",
+  "name": "dlc_daf_xf_electric.scs",
+  "size": 41643230
+ },
+ {
+  "status": "OK",
+  "name": "dlc_dragon.scs",
+  "size": 69418649
+ },
+ {
+  "status": "OK",
+  "name": "dlc_dutch_style.scs",
+  "size": 46950285
+ },
+ {
+  "status": "OK",
+  "name": "dlc_east.scs",
+  "size": 37786547
+ },
+ {
+  "status": "OK",
+  "name": "dlc_fantasy.scs",
+  "size": 160239032
+ },
+ {
+  "status": "OK",
+  "name": "dlc_farm_machinery.scs",
+  "size": 55135267
+ },
+ {
+  "status": "OK",
+  "name": "dlc_feldbinder.scs",
+  "size": 175194792
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_at.scs",
+  "size": 294409938
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_aus.scs",
+  "size": 62571915
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_be.scs",
+  "size": 29643497
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_bg.scs",
+  "size": 36216851
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_bz.scs",
+  "size": 64779325
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_ca.scs",
+  "size": 287838505
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_ch.scs",
+  "size": 51583399
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_cn.scs",
+  "size": 137771456
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_cz.scs",
+  "size": 126881566
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_de.scs",
+  "size": 26254338
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_dk.scs",
+  "size": 68832761
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_ee.scs",
+  "size": 31331940
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_es.scs",
+  "size": 111035949
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_fi.scs",
+  "size": 45884342
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_fr.scs",
+  "size": 47142376
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_hu.scs",
+  "size": 204923997
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_ie.scs",
+  "size": 29193023
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_it.scs",
+  "size": 145642190
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_jp.scs",
+  "size": 82676553
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_kr.scs",
+  "size": 42831939
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_lt.scs",
+  "size": 50712337
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_lv.scs",
+  "size": 36513653
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_n.scs",
+  "size": 63415064
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_nl.scs",
+  "size": 66762567
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_pl.scs",
+  "size": 23854747
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_pt.scs",
+  "size": 115130805
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_ro.scs",
+  "size": 61106985
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_ru.scs",
+  "size": 95981296
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_s.scs",
+  "size": 65218300
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_sc.scs",
+  "size": 62994789
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_sk.scs",
+  "size": 36928878
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_tr.scs",
+  "size": 48806341
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_uk.scs",
+  "size": 75255714
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_ukr.scs",
+  "size": 43916910
+ },
+ {
+  "status": "OK",
+  "name": "dlc_flags_us.scs",
+  "size": 165959992
+ },
+ {
+  "status": "OK",
+  "name": "dlc_forest_harvesting.scs",
+  "size": 37886399
+ },
+ {
+  "status": "OK",
+  "name": "dlc_fr.scs",
+  "size": 94793186
+ },
+ {
+  "status": "OK",
+  "name": "dlc_goodyear.scs",
+  "size": 53606176
+ },
+ {
+  "status": "OK",
+  "name": "dlc_greece.scs",
+  "size": 499290972
+ },
+ {
+  "status": "OK",
+  "name": "dlc_greek_paintjobs.scs",
+  "size": 122245835
+ },
+ {
+  "status": "OK",
+  "name": "dlc_halloween.scs",
+  "size": 165315916
+ },
+ {
+  "status": "OK",
+  "name": "dlc_heavy_cargo.scs",
+  "size": 14341796
+ },
+ {
+  "status": "OK",
+  "name": "dlc_hs_schoch.scs",
+  "size": 28738453
+ },
+ {
+  "status": "OK",
+  "name": "dlc_iberia.scs",
+  "size": 343420774
+ },
+ {
+  "status": "OK",
+  "name": "dlc_it.scs",
+  "size": 87881723
+ },
+ {
+  "status": "OK",
+  "name": "dlc_iveco_sway.scs",
+  "size": 55669602
+ },
+ {
+  "status": "OK",
+  "name": "dlc_jcb.scs",
+  "size": 72436349
+ },
+ {
+  "status": "OK",
+  "name": "dlc_kassbohrer.scs",
+  "size": 316527113
+ },
+ {
+  "status": "OK",
+  "name": "dlc_kogel.scs",
+  "size": 157188229
+ },
+ {
+  "status": "OK",
+  "name": "dlc_krone.scs",
+  "size": 351326908
+ },
+ {
+  "status": "OK",
+  "name": "dlc_krone_agriculture.scs",
+  "size": 63979615
+ },
+ {
+  "status": "OK",
+  "name": "dlc_lines.scs",
+  "size": 253728491
+ },
+ {
+  "status": "OK",
+  "name": "dlc_lunar_new_year.scs",
+  "size": 3954368850
+ },
+ {
+  "status": "OK",
+  "name": "dlc_man_tgx_2020.scs",
+  "size": 156852110
+ },
+ {
+  "status": "OK",
+  "name": "dlc_metallics.scs",
+  "size": 3403605
+ },
+ {
+  "status": "OK",
+  "name": "dlc_metallics2.scs",
+  "size": 10918077
+ },
+ {
+  "status": "OK",
+  "name": "dlc_michelin.scs",
+  "size": 101788834
+ },
+ {
+  "status": "OK",
+  "name": "dlc_mighty_griffin.scs",
+  "size": 32158456
+ },
+ {
+  "status": "OK",
+  "name": "dlc_nature.scs",
+  "size": 343582235
+ },
+ {
+  "status": "OK",
+  "name": "dlc_north.scs",
+  "size": 182589824
+ },
+ {
+  "status": "OK",
+  "name": "dlc_oversize.scs",
+  "size": 16159558
+ },
+ {
+  "status": "OK",
+  "name": "dlc_pcg.scs",
+  "size": 390860
+ },
+ {
+  "status": "OK",
+  "name": "dlc_phys_flags.scs",
+  "size": 8183682
+ },
+ {
+  "status": "OK",
+  "name": "dlc_pink_ribbon.scs",
+  "size": 267135245
+ },
+ {
+  "status": "OK",
+  "name": "dlc_pirates.scs",
+  "size": 168953338
+ },
+ {
+  "status": "OK",
+  "name": "dlc_polar.scs",
+  "size": 569859700
+ },
+ {
+  "status": "OK",
+  "name": "dlc_prehistoric.scs",
+  "size": 337460104
+ },
+ {
+  "status": "OK",
+  "name": "dlc_raven.scs",
+  "size": 32165145
+ },
+ {
+  "status": "OK",
+  "name": "dlc_renault_etech_t.scs",
+  "size": 1709891
+ },
+ {
+  "status": "OK",
+  "name": "dlc_renault_t_tuning.scs",
+  "size": 35290664
+ },
+ {
+  "status": "OK",
+  "name": "dlc_rims.scs",
+  "size": 7990424
+ },
+ {
+  "status": "OK",
+  "name": "dlc_rocket_league.scs",
+  "size": 555935
+ },
+ {
+  "status": "OK",
+  "name": "dlc_scania_s_2024e.scs",
+  "size": 11427357
+ },
+ {
+  "status": "OK",
+  "name": "dlc_schmitz.scs",
+  "size": 328390553
+ },
+ {
+  "status": "OK",
+  "name": "dlc_schwarzmuller.scs",
+  "size": 90124742
+ },
+ {
+  "status": "OK",
+  "name": "dlc_space.scs",
+  "size": 383025111
+ },
+ {
+  "status": "OK",
+  "name": "dlc_streetart.scs",
+  "size": 602536852
+ },
+ {
+  "status": "OK",
+  "name": "dlc_super_stripes.scs",
+  "size": 482598993
+ },
+ {
+  "status": "OK",
+  "name": "dlc_tirsan.scs",
+  "size": 141091632
+ },
+ {
+  "status": "OK",
+  "name": "dlc_toys.scs",
+  "size": 8378921
+ },
+ {
+  "status": "OK",
+  "name": "dlc_trailers.scs",
+  "size": 21174413
+ },
+ {
+  "status": "OK",
+  "name": "dlc_valentine.scs",
+  "size": 202921106
+ },
+ {
+  "status": "OK",
+  "name": "dlc_vikings.scs",
+  "size": 146388897
+ },
+ {
+  "status": "OK",
+  "name": "dlc_volvo_construction.scs",
+  "size": 32661782
+ },
+ {
+  "status": "OK",
+  "name": "dlc_volvo_fh_2021.scs",
+  "size": 54367421
+ },
+ {
+  "status": "OK",
+  "name": "dlc_volvo_fh_2024.scs",
+  "size": 172928379
+ },
+ {
+  "status": "OK",
+  "name": "dlc_volvo_tuning_pack.scs",
+  "size": 48626462
+ },
+ {
+  "status": "OK",
+  "name": "dlc_wielton.scs",
+  "size": 173966460
+ },
+ {
+  "status": "OK",
+  "name": "dlc_winter.scs",
+  "size": 196169958
+ },
+ {
+  "status": "OK",
+  "name": "effect.scs",
+  "size": 65356424
+ },
+ {
+  "status": "PARTIAL",
+  "name": "locale.scs",
+  "size": 12443285
+ },
+ {
+  "status": "OK",
+  "name": "version.scs",
+  "size": 12773
+ }
+]

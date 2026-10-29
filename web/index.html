@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>欧卡2 车辆配件搭配助手</title>
+<link rel="stylesheet" href="/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "/vendor/three.module.js",
+    "three/addons/": "/vendor/"
+  }
+}
+</script>
+</head>
+<body>
+
+<div id="boot" class="boot">
+  <div class="boot-card">
+    <div class="logo">ETS2 <span>Garage</span></div>
+    <h1>欧卡2 车辆配件搭配助手</h1>
+    <p class="muted">读取游戏归档中的全部车辆模型与配件，自由混搭，并显示每个配件的挂点 XYZ 坐标。</p>
+
+    <div class="field">
+      <label>游戏安装目录</label>
+      <div class="row">
+        <input id="gamePath" placeholder="D:\SteamLibrary\steamapps\common\Euro Truck Simulator 2">
+        <button id="browseBtn" class="ghost">浏览…</button>
+      </div>
+      <div id="candidates" class="candidates"></div>
+    </div>
+
+    <div class="field">
+      <label>mod 目录（可选）</label>
+      <input id="modPath" placeholder="%USERPROFILE%\Documents\Euro Truck Simulator 2\mod">
+    </div>
+
+    <button id="scanBtn" class="primary big">开始扫描并解包</button>
+    <div id="bootProgress" class="progress hidden"><div class="bar"></div><span></span></div>
+    <div id="bootError" class="error hidden"></div>
+    <div class="hint">
+      <b>提示：</b>首次扫描需要遍历约 40GB 的归档索引（只读目录表，不解压全部内容），通常 10–40 秒。
+    </div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <header class="topbar">
+    <div class="brand">ETS2 <span>Garage</span></div>
+    <div class="topinfo">
+      <span id="statFiles" class="pill"></span>
+      <span id="statVehicles" class="pill"></span>
+      <span id="statMods" class="pill"></span>
+    </div>
+    <div class="topactions">
+      <button id="resetView" class="ghost small">复位视角</button>
+      <button id="reScan" class="ghost small">重新扫描</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel vehicles">
+      <div class="panel-head">
+        <h2>车辆</h2>
+        <div class="tabs">
+          <button class="tab active" data-cat="truck">卡车</button>
+          <button class="tab" data-cat="trailer">挂车</button>
+        </div>
+      </div>
+      <input id="vehSearch" class="search" placeholder="搜索品牌或型号…">
+      <div id="vehList" class="list"></div>
+    </section>
+
+    <section class="panel viewport">
+      <div id="canvasWrap" class="canvas-wrap">
+        <canvas id="gl"></canvas>
+        <div id="viewportHint" class="viewport-hint">选择左侧车辆开始预览</div>
+        <div id="locatorHud" class="hud hidden"></div>
+        <div id="loading" class="loading hidden"><div class="spinner"></div><span></span></div>
+
+        <div id="editPanel" class="edit-panel hidden">
+          <div class="ep-head">
+            <b id="editTitle">未选中配件</b>
+            <button id="editClose" class="ghost small" title="关闭">×</button>
+          </div>
+          <div class="ep-modes">
+            <button class="ep-mode active" data-mode="translate">移动 <kbd>W</kbd></button>
+            <button class="ep-mode" data-mode="rotate">旋转 <kbd>E</kbd></button>
+            <button class="ep-mode" data-mode="scale">缩放 <kbd>R</kbd></button>
+          </div>
+          <div class="ep-grid">
+            <span class="ep-lbl">位置</span>
+            <div class="ep-ctl"><input id="epPX" type="number" step="0.01" title="X 偏移"><button data-axis="px" data-d="-1">−</button><button data-axis="px" data-d="1">+</button></div>
+            <div class="ep-ctl"><input id="epPY" type="number" step="0.01" title="Y 偏移"><button data-axis="py" data-d="-1">−</button><button data-axis="py" data-d="1">+</button></div>
+            <div class="ep-ctl"><input id="epPZ" type="number" step="0.01" title="Z 偏移"><button data-axis="pz" data-d="-1">−</button><button data-axis="pz" data-d="1">+</button></div>
+            <span class="ep-lbl">旋转°</span>
+            <div class="ep-ctl"><input id="epRX" type="number" step="1" title="X 旋转"><button data-axis="rx" data-d="-1">−</button><button data-axis="rx" data-d="1">+</button></div>
+            <div class="ep-ctl"><input id="epRY" type="number" step="1" title="Y 旋转"><button data-axis="ry" data-d="-1">−</button><button data-axis="ry" data-d="1">+</button></div>
+            <div class="ep-ctl"><input id="epRZ" type="number" step="1" title="Z 旋转"><button data-axis="rz" data-d="-1">−</button><button data-axis="rz" data-d="1">+</button></div>
+            <span class="ep-lbl">缩放</span>
+            <div class="ep-ctl"><input id="epS" type="number" step="0.01" title="统一缩放"><button data-axis="s" data-d="-1">−</button><button data-axis="s" data-d="1">+</button></div>
+          </div>
+          <div class="ep-step">
+            <label>步长</label>
+            <select id="epStep">
+              <option value="0.001">0.001 m</option>
+              <option value="0.01" selected>0.01 m</option>
+              <option value="0.05">0.05 m</option>
+              <option value="0.1">0.1 m</option>
+            </select>
+            <button id="epDrop" class="ghost small" title="把配件放到光标所指的模型表面">贴到表面</button>
+          </div>
+          <div id="epReadout" class="ep-readout"></div>
+          <div class="ep-actions">
+            <button id="editReset" class="ghost small">重置此配件</button>
+            <button id="editResetAll" class="ghost small">全部重置</button>
+          </div>
+        </div>
+
+        <div id="editHint" class="edit-hint hidden">点击模型上的配件即可选中，然后用箭头拖动调整</div>
+        <div id="toast" class="toast hidden"></div>
+      </div>
+      <div class="legend">
+        <label><input type="checkbox" id="showLocators" checked> 显示全部挂点</label>
+        <label><input type="checkbox" id="showGrid" checked> 网格</label>
+        <label><input type="checkbox" id="showWire"> 线框</label>
+        <span class="legend-tip">选中配件后可按 <kbd>W</kbd>/<kbd>E</kbd>/<kbd>R</kbd> 切换移动/旋转/缩放，<kbd>Esc</kbd> 取消选中</span>
+        <span id="renderStats" class="muted"></span>
+      </div>
+    </section>
+
+    <section class="panel config">
+      <div class="panel-head">
+        <h2>配件</h2>
+        <input id="slotSearch" class="search small" placeholder="筛选槽位…">
+      </div>
+      <div id="truckSummary" class="summary"></div>
+      <div id="slotList" class="list slots"></div>
+    </section>
+  </main>
+
+  <section class="coords">
+    <div class="panel-head">
+      <h2>挂点坐标（可直接写入存档 / mod）</h2>
+      <div class="coords-actions">
+        <button id="exportCsv" class="ghost small">导出 CSV</button>
+        <button id="exportJson" class="ghost small">导出 JSON</button>
+        <button id="copyAll" class="ghost small">复制全部</button>
+      </div>
+    </div>
+    <div class="coords-scroll">
+      <table id="coordTable">
+        <thead>
+          <tr><th>槽位</th><th>配件</th><th>来源车辆</th><th>挂点 locator</th>
+              <th>挂点 X</th><th>挂点 Y</th><th>挂点 Z</th>
+              <th>偏移 X</th><th>偏移 Y</th><th>偏移 Z</th>
+              <th>最终 X</th><th>最终 Y</th><th>最终 Z</th>
+              <th>旋转 (x,y,z)°</th><th>缩放</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<div id="picker" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="pickerTitle">选择配件</h3>
+      <input id="pickerSearch" class="search small" placeholder="搜索（名称 / 车辆 / 路径）…">
+      <button id="pickerClose" class="ghost small">关闭</button>
+    </div>
+    <div class="modal-note" id="pickerNote"></div>
+    <div id="pickerList" class="picker-list"></div>
+  </div>
+</div>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>
